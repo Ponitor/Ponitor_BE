@@ -14,7 +14,7 @@ public class CustomerApiController {
 
     private final CustomerService customerService;
 
-    @PostMapping("/users/{customer}/lists")
+    @PostMapping("/users/lists")
     public Long save(@RequestBody CustomerSaveRequestDto requestDto){
         return customerService.save(requestDto);
     }

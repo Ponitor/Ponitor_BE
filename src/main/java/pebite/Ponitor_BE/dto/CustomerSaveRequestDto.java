@@ -5,19 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pebite.Ponitor_BE.model.Customer;
 
+import java.sql.Timestamp;
+
 @Getter
 @NoArgsConstructor
 public class CustomerSaveRequestDto {
-    private String startTime;
-    private String endTime;
+    private Timestamp startTime;
+    private Timestamp endTime;
     private String atmId;
 
     @Builder
-    public CustomerSaveRequestDto(String startTime, String endTime, String atmId){
+    public CustomerSaveRequestDto(Timestamp startTime,Timestamp endTime, String atmId){
         this.startTime = startTime;
         this.endTime = endTime;
         this.atmId = atmId;
     }
+
     public Customer toEntity(){
         return Customer.builder()
                 .startTime(startTime)

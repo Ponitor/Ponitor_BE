@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import pebite.Ponitor_BE.model.Customer;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -28,8 +29,8 @@ public class CustomerRepositoryTest {
     @Test
     public void 고객정보_불러오기(){
         //given
-        String startTime = "2023-04-20 03:21:00.000";
-        String endTime = "2023-04-20 03:25:31.000";
+        Timestamp startTime = Timestamp.valueOf("2023-04-20 03:21:00.000");
+        Timestamp endTime = Timestamp.valueOf("2023-04-20 03:25:31.000");
         String atmId = "ewha001";
 
         customerRepository.save(Customer.builder()
@@ -45,6 +46,7 @@ public class CustomerRepositoryTest {
         Customer customer = customerList.get(0);
         assertThat(customer.getStartTime()).isEqualTo(startTime);
         assertThat(customer.getEndTime()).isEqualTo(endTime);
+        assertThat(customer.getAtmId()).isEqualTo(atmId);
 
     }
 
