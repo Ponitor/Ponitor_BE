@@ -3,19 +3,31 @@ package pebite.Ponitor_BE.dto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 import pebite.Ponitor_BE.model.Customer;
 
-import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
+import java.time.LocalDateTime;
+
+@ToString
 @Getter
 @NoArgsConstructor
 public class CustomerSaveRequestDto {
-    private Timestamp startTime;
-    private Timestamp endTime;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime startTime;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime endTime;
+
     private String atmId;
 
     @Builder
-    public CustomerSaveRequestDto(Timestamp startTime,Timestamp endTime, String atmId){
+    public CustomerSaveRequestDto(LocalDateTime startTime,LocalDateTime endTime, String atmId){
         this.startTime = startTime;
         this.endTime = endTime;
         this.atmId = atmId;
@@ -29,3 +41,4 @@ public class CustomerSaveRequestDto {
                 build();
     }
 }
+
