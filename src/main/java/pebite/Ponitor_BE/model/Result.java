@@ -18,16 +18,16 @@ public class Result { //판단 결과 저장 엔티티
     private Long withdraw; //만원단위
 
     @Column(nullable = true)
-    private Boolean isPhone;
+    private boolean phone;
 
     @Column(nullable = true)
-    private Boolean isAlert;
+    private boolean victim;
 
     @Builder
-    public Result( Long customerId, Long withdraw, Boolean isPhone, Boolean isAlert){
+    public Result( Long customerId, Long withdraw, boolean phone, boolean victim){
         this.customerId = customerId;
         this.withdraw = withdraw;
-        this.isPhone = isPhone;
-        this.isAlert = isAlert;
+        this.phone = phone;
+        this.victim = victim;
     }
 }
