@@ -14,10 +14,8 @@ import java.io.IOException;
 @Service
 public class CustomerImagesService {
     private final CustomerImagesRepository customerImagesRepository;
-
     @Autowired
     private S3Uploader s3Uploader;
-
     @Transactional
     public Long saveImage(MultipartFile imageFile, CustomerImagesSaveRequestDto requestDto){
         if (!imageFile.isEmpty()) {
