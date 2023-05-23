@@ -25,6 +25,9 @@ public class CustomerImagesService {
             } catch (IOException e) {
                 System.out.println(e.getMessage()); }
         }
+        else{
+            return 0L;
+        }
         return  customerImagesRepository.save(requestDto.toEntity()).getCustomerId();
     }
 
